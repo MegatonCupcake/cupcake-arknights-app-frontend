@@ -1,0 +1,392 @@
+:host {
+  display: block;
+  min-height: 100dvh;
+  color: #172026;
+  background: #f4f7f5;
+  font-family:
+    Inter,
+    Roboto,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+}
+
+button {
+  letter-spacing: 0;
+}
+
+.app-shell {
+  width: min(1320px, 100%);
+  margin: 0 auto;
+  padding: 22px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 10px 0 18px;
+  border-bottom: 1px solid #d8dfda;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: #55756a;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.toolbar__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #50656a;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 10px;
+  padding: 16px 0 20px;
+  border-bottom: 1px solid #d8dfda;
+}
+
+.section-button {
+  min-height: 48px;
+  justify-content: start;
+  border-color: #b9c8c2;
+  background: #ffffff;
+  text-align: left;
+}
+
+.section-button ::ng-deep .mdc-button__label,
+.section-button .mdc-button__label {
+  display: grid;
+  justify-items: start;
+  gap: 2px;
+  min-width: 0;
+}
+
+.section-button span {
+  color: #1f3439;
+  font-weight: 800;
+}
+
+.section-button small {
+  overflow: hidden;
+  max-width: 100%;
+  color: #55756a;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.section-button--active {
+  border-color: #147175;
+  background: #e8f4f2;
+}
+
+.results-panel {
+  padding: 20px 0 8px;
+}
+
+.results-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+
+.results-summary {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  color: #50656a;
+  font-weight: 700;
+}
+
+.count {
+  color: #172026;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.page-size {
+  color: #50656a;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.status {
+  display: grid;
+  min-height: 180px;
+  place-items: center;
+  border: 1px solid #d8dfda;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #50656a;
+  font-weight: 700;
+}
+
+.status--error {
+  border-color: #d9aaa3;
+  color: #934338;
+}
+
+.results-list {
+  display: grid;
+  gap: 10px;
+}
+
+.operator-card {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  gap: 14px;
+  min-height: 112px;
+  border: 1px solid #d4ddd7;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 12px;
+  box-shadow: 0 6px 18px rgba(28, 44, 42, 0.05);
+}
+
+.operator-card__thumbnail {
+  width: 74px;
+  height: 74px;
+  border: 1px solid #d4ddd7;
+  border-radius: 6px;
+  background: #edf2ee;
+  object-fit: contain;
+}
+
+.operator-card__body {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.operator-card__topline {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) auto auto;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
+}
+
+.operator-card h2 {
+  overflow: hidden;
+  color: #172026;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rarity {
+  color: #b47a04;
+  font-size: 0.9rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.class-branch {
+  overflow: hidden;
+  color: #50656a;
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.metadata-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 0;
+}
+
+.metadata-pill {
+  max-width: 100%;
+  min-height: 28px;
+  border-color: #c7d3ce;
+  color: #38535a;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.metadata-pill ::ng-deep .mdc-button__label,
+.metadata-pill .mdc-button__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.expand-button {
+  justify-self: stretch;
+  min-height: 28px;
+  color: #1d6468;
+  font-weight: 900;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 56px;
+  margin-top: 12px;
+  color: #50656a;
+  font-weight: 800;
+}
+
+.pagination button {
+  min-width: 96px;
+}
+
+.filter-dialog__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 8px 0 20px;
+}
+
+.filter-dialog__header h2 {
+  color: #172026;
+  font-size: 1.18rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.dialog-close {
+  min-width: 36px;
+}
+
+.filter-dialog {
+  display: grid;
+  gap: 18px;
+  max-height: min(70dvh, 680px);
+  padding: 4px 20px 20px;
+}
+
+.filter-dialog__section {
+  display: grid;
+  gap: 10px;
+}
+
+.filter-dialog__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.filter-dialog h3 {
+  color: #24383d;
+  font-size: 0.92rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.filter-dialog mat-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  gap: 6px 12px;
+}
+
+.option-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.option-button {
+  min-height: 32px;
+  border-color: #b9c8c2;
+  background: #ffffff;
+}
+
+.option-button--active {
+  border-color: #147175;
+  background: #dff3f1;
+  color: #0f5559;
+}
+
+.option-button--excluded {
+  border-color: #b76359;
+  background: #f7e7e3;
+  color: #934338;
+}
+
+.sort-options {
+  justify-content: start;
+}
+
+@media (max-width: 780px) {
+  .app-shell {
+    padding: 16px;
+  }
+
+  .toolbar,
+  .results-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .toolbar__meta {
+    justify-content: start;
+  }
+
+  .filters {
+    grid-template-columns: repeat(auto-fill, minmax(136px, 1fr));
+  }
+
+  .operator-card {
+    grid-template-columns: 60px minmax(0, 1fr);
+  }
+
+  .operator-card__thumbnail {
+    width: 60px;
+    height: 60px;
+  }
+
+  .operator-card__topline {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .filter-dialog__row {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .filter-dialog mat-radio-group {
+    justify-content: start;
+  }
+}

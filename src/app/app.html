@@ -1,0 +1,100 @@
+<main class="app-shell">
+  <header class="toolbar">
+    <div>
+      <p class="eyebrow">Arknights Operator Index</p>
+      <h1>Filter operators</h1>
+    </div>
+
+    <div class="toolbar__meta">
+      <span>{{ selectedCount() }} selected</span>
+      <button type="button" mat-stroked-button (click)="clearFilters()" [disabled]="selectedCount() === 0">
+        Clear
+      </button>
+    </div>
+  </header>
+
+  <section class="filters" aria-label="Operator filters">
+    @for (section of sections; track section.key) {
+      <button
+        type="button"
+        mat-stroked-button
+        class="section-button"
+        [class.section-button--active]="isSectionActive(section)"
+        (click)="openFilter(section)"
+      >
+        <span>{{ section.label }}</span>
+        @if (sectionSummary(section)) {
+          <small>{{ sectionSummary(section) }}</small>
+        }
+      </button>
+    }
+  </section>
+
+  <section class="results-panel" aria-label="Operator results">
+    <div class="results-toolbar">
+      <div class="results-summary">
+        <span class="count">{{ totalElements() }}</span>
+        <span>operators</span>
+      </div>
+      <span class="page-size">Showing 10 per page</span>
+    </div>
+
+    @if (loading()) {
+      <div class="status">Loading operators...</div>
+    } @else if (error()) {
+      <div class="status status--error">{{ error() }}</div>
+    } @else if (results().length === 0) {
+      <div class="status">No operators found.</div>
+    } @else {
+      <div class="results-list">
+        @for (operator of results(); track trackOperator($index, operator)) {
+          <mat-card class="operator-card">
+            <img
+              class="operator-card__thumbnail"
+              [src]="thumbnailSrc(operator)"
+              [alt]="displayValue(operator, 'name')"
+              loading="lazy"
+            />
+
+            <div class="operator-card__body">
+              <div class="operator-card__topline">
+                <h2>{{ displayValue(operator, 'name') }}</h2>
+                <span class="rarity" [attr.aria-label]="'Rarity ' + displayValue(operator, 'rarity')">
+                  {{ rarityStars(operator) }}
+                </span>
+                <span class="class-branch">{{ classBranch(operator) }}</span>
+              </div>
+
+              <div class="metadata-pills">
+                @for (pill of metadata(operator, isExpanded(operator)); track trackMetadata($index, pill)) {
+                  <button type="button" mat-stroked-button class="metadata-pill" aria-disabled="true">
+                    {{ pill.label }}: {{ pill.value }}
+                  </button>
+                }
+              </div>
+
+              <button type="button" mat-button class="expand-button" (click)="toggleExpanded(operator)">
+                {{ isExpanded(operator) ? 'hide' : 'expand' }}
+              </button>
+            </div>
+          </mat-card>
+        }
+      </div>
+    }
+
+    <footer class="pagination">
+      <button type="button" mat-flat-button (click)="previousPage()" [disabled]="pageNumber() === 0 || loading()">
+        Previous
+      </button>
+      <span>{{ pageLabel() }}</span>
+      <button
+        type="button"
+        mat-flat-button
+        (click)="nextPage()"
+        [disabled]="pageNumber() + 1 >= totalPages() || loading()"
+      >
+        Next
+      </button>
+    </footer>
+  </section>
+</main>
